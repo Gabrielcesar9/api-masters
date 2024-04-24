@@ -11,6 +11,9 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
+  app.get('/',(req,res)=>{
+    return res.send('Hello World')
+})
 app.post('/compute',jsonParser, (req, res) => {
     console.log('an incoming request')
     console.log(req.body.data)
@@ -113,10 +116,6 @@ app.options('/compute', cors({
     allowedHeaders:['Accept', 'Accept-Language', 'Content-Language', 'Content-Type']
 
 }))
-
-app.get('/',(req,res)=>{
-    res.send('Hello World')
-})
 
 // Start the server
 app.listen(port, () => {
