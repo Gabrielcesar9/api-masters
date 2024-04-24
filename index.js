@@ -11,8 +11,10 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
-  app.get('/',(req,res)=>{
-    return res.send('Hello World')
+
+
+app.get('/',(req,res)=>{
+    return res.json('Hello World')
 })
 app.post('/compute',jsonParser, (req, res) => {
     console.log('an incoming request')
